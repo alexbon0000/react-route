@@ -11,3 +11,7 @@
 .notFound {
     text-align: center;
 }
+.nav-link {
+    display: inline !important;
+    margin-left: 10px;
+}
