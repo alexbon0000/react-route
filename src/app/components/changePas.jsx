@@ -1,16 +1,38 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 
 const ChangePas = () => {
+    const [pass, setPass] = useState("");
+    const [error, setError] = useState("");
     const [email, setEmail] = useState("");
+
     const handleChangeEmail = (e) => {
         setEmail(e.target.value);
         console.log(e.target.value);
     };
+
+    const onSubmit = async (event) => {
+        event.preventDefault();
+
+        const auth = getAuth();
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+                setPass("Письмо для сброса пароля отправленно");
+            })
+            .catch((error) => {
+                console.error("Такого email не существует");
+                setError("Такого email не существует");
+                // ..
+            });
+    };
+
     return (
         <div className="auth">
             <h2>Смена пароля</h2>
-            <form>
+            <p className="text-danger">{error}</p>
+            <p className="text-success">{pass}</p>
+            <form onSubmit={onSubmit}>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">
                         Адрес электронной почты

@@ -1,9 +1,13 @@
 .box {
     background-color: rgb(188, 188, 188);
+    height: 100vh;
 }
 .auth {
     padding-top: 30px;
     width: 50vh;
     height: 100vh;
     margin: 0 auto;
+}
+.notFound {
+    text-align: center;
 }

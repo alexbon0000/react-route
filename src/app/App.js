@@ -4,6 +4,7 @@ import Login from "./components/login";
 import Registration from "./components/registration";
 import ChangePas from "./components/changePas";
 import User from "./components/user";
+import NotFoundPage from "./components/notFoundPage";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
@@ -16,10 +17,11 @@ function App() {
             </div>
 
             <Routes>
-                <Route path="/user" Component={User} />
-                <Route path="/login" Component={Login} />
-                <Route path="/login/changePas" Component={ChangePas} />
-                <Route path="/login/registration" Component={Registration} />
+                <Route path="/user" element={<User />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/login/changePas" element={<ChangePas />} />
+                <Route path="/login/registration" element={<Registration />} />
+                <Route path="*" element={<NotFoundPage />} />
             </Routes>
         </div>
     );
