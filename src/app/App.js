@@ -7,6 +7,7 @@ import User from "./components/user";
 import NotFoundPage from "./components/notFoundPage";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import Home from "./components/home";
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
             </div>
 
             <Routes>
+                <Route path="/" element={<Home />} />
                 <Route path="/user" element={<User />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/login/changePas" element={<ChangePas />} />

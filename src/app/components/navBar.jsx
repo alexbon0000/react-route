@@ -13,6 +13,9 @@ const NavBar = () => {
                 >
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <div className="nav-item">
+                            <Link className="nav-link" to="/">
+                                Home
+                            </Link>
                             <Link className="nav-link" to="/user">
                                 User
                             </Link>
