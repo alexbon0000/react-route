@@ -14,7 +14,7 @@ const firebaseConfig = {
     measurementId: "G-QMM4VGV5NE",
 };
 
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 
 export const createUser = async (email, password) => {
     return createUserWithEmailAndPassword(getAuth(app), email, password);
