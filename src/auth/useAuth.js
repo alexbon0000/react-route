@@ -7,10 +7,9 @@ export const useAuth = () => {
 
     const login = async ({ email, password }) => {
         const user = await fetchLoginUser({ email, password });
-        console.log(user);
         if (user) {
-            localStorage.setItem("email", user.email);
-            localStorage.setItem("accessToken", user.accessToken);
+            localStorage.setItem("email", user.user.email);
+            localStorage.setItem("accessToken", user.user.accessToken);
             navigate("/user");
         } else {
             console.error("Не зашел");

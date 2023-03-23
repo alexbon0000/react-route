@@ -1,10 +1,9 @@
-import { useAuthApp } from "../auth/auth.context";
 import { useAuth } from "../auth/useAuth";
-import NavBarAuth from "../components/navBarAuth";
 
 const User = () => {
-    const { endSession } = useAuth();
-    const auth = useAuthApp();
+    const { endSession, getSession } = useAuth();
+    const email = getSession().email;
+    console.log(getSession().accessToken);
 
     const onLogout = () => {
         endSession();
@@ -13,7 +12,7 @@ const User = () => {
         <>
             <div className="home">
                 <h1>User</h1>
-                <p>{auth}</p>
+                <p>{email}</p>
                 <button
                     type="button"
                     className="btn btn-primary"
